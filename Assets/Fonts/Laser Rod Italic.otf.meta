@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 0c07a92d938a16a4890378a6eb785ea7
+timeCreated: 1484224398
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Laser Rod
+  fontNames:
+  - Laser Rod
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
