@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212118470396945450}
   - component: {fileID: 114550431195861234}
   m_Layer: 0
-  m_Name: Battleship
+  m_Name: PlayerShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,6 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShipSpeed: 10
+  Projectile: {fileID: 1302326704829174, guid: e96a9143f5bfc144391726628a82c6f6, type: 2}
+  ProjectileSpeed: 5
+  FireRate: 0.1
 --- !u!212 &212118470396945450
 SpriteRenderer:
   m_ObjectHideFlags: 1

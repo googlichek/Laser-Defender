@@ -4,6 +4,9 @@ public class PlayerController : MonoBehaviour
 {
     // Настраиваемая в Unity Editor скорость кораблика.
     public float ShipSpeed = 10f;
+    public GameObject Projectile;
+    public float ProjectileSpeed;
+    public float FireRate;
 
     private float _xMax;
     private float _xMin;
@@ -21,7 +24,17 @@ public class PlayerController : MonoBehaviour
 
 	void Update ()
 	{
-	    if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            InvokeRepeating("Fire", 0.000001f, FireRate);
+        }
+
+	    if (Input.GetKeyUp(KeyCode.Space))
+	    {
+	        CancelInvoke("Fire");
+	    }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
 	    {
 	        transform.position += Vector3.left * ShipSpeed * Time.deltaTime;
 	        var newX = Mathf.Clamp(transform.position.x, _xMin, _xMax);
@@ -34,4 +47,10 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(newX, transform.position.y, transform.position.z);
         }
 	}
+
+    private void Fire()
+    {
+        var beam = Instantiate(Projectile, transform.position, Quaternion.identity) as GameObject;
+        beam.GetComponent<Rigidbody2D>().velocity = new Vector3(0, ProjectileSpeed, 0);
+    }
 }
