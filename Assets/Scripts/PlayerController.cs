@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        // Вычисление границ передвижения кораблей на экране.
         var distance = transform.position.z - Camera.main.transform.position.z;
         var leftmost = Camera.main.ViewportToWorldPoint(new Vector3(0 , 0, distance));
         var rightmost = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, distance));
