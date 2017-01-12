@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     private float _xMax;
     private float _xMin;
-    private float _padding = 0.5f;
+    private float _padding = 0.6f;
 
     void Start()
     {
