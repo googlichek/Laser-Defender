@@ -122,7 +122,7 @@ MonoBehaviour:
     type: 2}
   Width: 11
   High: 5
-  EnemySpeed: 5
+  EnemySpeed: 3
 --- !u!4 &142788324
 Transform:
   m_ObjectHideFlags: 0

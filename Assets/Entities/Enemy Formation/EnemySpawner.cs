@@ -5,12 +5,12 @@ public class EnemySpawner : MonoBehaviour
     public GameObject EnemyPrefab;
     public float Width  = 11f;
     public float High = 5f;
-    public float EnemySpeed = 5f;
+    public float EnemySpeed = 3f;
 
     private bool _movingRight = true;
     private float _xMax;
     private float _xMin;
-    private float _padding = 1f;
+    private float _padding = 0.6f;
 
     void Start ()
 	{
@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update ()
     {
-	    if (_movingRight)
+        if (_movingRight)
 	    {
 	        transform.position += Vector3.right * EnemySpeed * Time.deltaTime;
 	    }
@@ -40,12 +40,18 @@ public class EnemySpawner : MonoBehaviour
             transform.position += Vector3.left * EnemySpeed * Time.deltaTime;
         }
 
+        // ������� ��� ��������� ��������.
         var rightEdgeOfFormation = transform.position.x + 0.5f * Width;
         var leftEdgeOfFormation = transform.position.x - 0.5f * Width;
 
-        if (leftEdgeOfFormation < _xMin + _padding || rightEdgeOfFormation > _xMax - _padding)
+        // ������� ��� ��������� �������� �� ������� � �������.
+        if (leftEdgeOfFormation < _xMin + _padding)
         {
-            _movingRight = !_movingRight;
+            _movingRight = true;
+        }
+        else if (rightEdgeOfFormation > _xMax - _padding)
+        {
+            _movingRight = false;
         }
     }
 
