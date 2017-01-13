@@ -4,13 +4,15 @@ public class PlayerController : MonoBehaviour
 {
     // Speed of the ship. Adjustable in Unity Editor.
     public float ShipSpeed = 10f;
-    public GameObject Projectile;
-    public float ProjectileSpeed;
-    public float FireRate;
+    public GameObject Beam;
+    public float BeamSpeed = 5f;
+    public float FireRate = 0.1f;
+    public float Health = 300f;
 
     private float _xMax;
     private float _xMin;
     private float _padding = 0.6f;
+    private float _beamOffset = 0.7f;
 
     void Start()
     {
@@ -48,9 +50,24 @@ public class PlayerController : MonoBehaviour
         }
 	}
 
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        var beam = collider.gameObject.GetComponent<Projectile>();
+        if (beam)
+        {
+            Health -= beam.GetDamage();
+            beam.Hit();
+            if (Health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
     private void Fire()
     {
-        var beam = Instantiate(Projectile, transform.position, Quaternion.identity) as GameObject;
-        beam.GetComponent<Rigidbody2D>().velocity = new Vector3(0, ProjectileSpeed, 0);
+        var startPosition = transform.position + new Vector3(0, _beamOffset, 0);
+        var beam = Instantiate(Beam, startPosition, Quaternion.identity) as GameObject;
+        beam.GetComponent<Rigidbody2D>().velocity = new Vector3(0, BeamSpeed, 0);
     }
 }
