@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Настраиваемая в Unity Editor скорость кораблика.
+    // Speed of the ship. Adjustable in Unity Editor.
     public float ShipSpeed = 10f;
     public GameObject Projectile;
     public float ProjectileSpeed;
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        // Вычисление границ передвижения кораблей на экране.
+        // Calculations of ship movement boundaries.
         var distanceToCamera = transform.position.z - Camera.main.transform.position.z;
         var leftmost = Camera.main.ViewportToWorldPoint(new Vector3(0 , 0, distanceToCamera));
         var rightmost = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, distanceToCamera));

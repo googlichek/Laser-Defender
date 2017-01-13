@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-// Уничтожает объекты, с которыми вступает во взаимодействие.
+// Destroys objects on trigger collision. 
 public class Shredder : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collider)

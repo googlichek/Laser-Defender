@@ -16,8 +16,8 @@ public class EnemySpawner : MonoBehaviour
 	{
 	    CalculateEdges();
 
-	    // ����� ������ �� ������� ������������ ��������.
-        foreach (Transform child in transform)
+        // Creatings of an enemy ship swarm.
+	    foreach (Transform child in transform)
 	    {
             var enemy = Instantiate(EnemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
             enemy.transform.parent = child;
@@ -40,11 +40,10 @@ public class EnemySpawner : MonoBehaviour
             transform.position += Vector3.left * EnemySpeed * Time.deltaTime;
         }
 
-        // ������� ��� ��������� ��������.
+        // Edge positions of enemy an ship swarm movement.
         var rightEdgeOfFormation = transform.position.x + 0.5f * Width;
         var leftEdgeOfFormation = transform.position.x - 0.5f * Width;
 
-        // ������� ��� ��������� �������� �� ������� � �������.
         if (leftEdgeOfFormation < _xMin + _padding)
         {
             _movingRight = true;
@@ -55,6 +54,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    // Calculates boundaries of game space.
     private void CalculateEdges()
     {
         var distanceToCamera = transform.position.z - Camera.main.transform.position.z;

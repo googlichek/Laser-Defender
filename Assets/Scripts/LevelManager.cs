@@ -3,19 +3,19 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    // Загружает сцену с переданным методу именем.
+    // Loads scene with a given name.
 	public void LoadLevel(string name)
     {
 		SceneManager.LoadScene(name);
 	}
 
-    // Загружает сцену со следующим индексом среди сцен в настройках билда.
+    // Loads scene with the next index in build settings scene order.
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    // Выходит из приложения (только в десктопной сборке).
+    // Quits from application (only for desktop build).
 	public void QuitRequest()
     {
 		Application.Quit ();

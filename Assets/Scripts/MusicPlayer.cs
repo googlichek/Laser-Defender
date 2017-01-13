@@ -4,7 +4,7 @@ public class MusicPlayer : MonoBehaviour
 {
     private static MusicPlayer _instance;
 
-    // Следит за тем, чтобы не создавались лишние инстансы проигрывателя фоновой музыки.
+    // Prevents from creating extra music players.
     void Awake()
     {
         if (_instance != null)
