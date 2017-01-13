@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61663062689613612}
   - component: {fileID: 114902899136856634}
   - component: {fileID: 114350086674975602}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Black Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,6 +104,7 @@ MonoBehaviour:
   Beam: {fileID: 1302326704829174, guid: 7018e2a5ea4cb244aa02edace3d4da7f, type: 2}
   Health: 150
   BeamSpeed: 5
+  ShotsPerSecond: 0.5
 --- !u!212 &212072798121074962
 SpriteRenderer:
   m_ObjectHideFlags: 1
