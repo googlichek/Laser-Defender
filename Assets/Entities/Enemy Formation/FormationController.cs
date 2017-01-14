@@ -6,7 +6,7 @@ public class FormationController : MonoBehaviour
     public float Width  = 11f;
     public float High = 5f;
     public float EnemySpeed = 3f;
-    public float SpwanDelay = 0.5f;
+    public float SpwanDelay = 1.5f;
 
     private bool _movingRight = true;
     private float _xMax;
