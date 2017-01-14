@@ -6,6 +6,7 @@ public class FormationController : MonoBehaviour
     public float Width  = 11f;
     public float High = 5f;
     public float EnemySpeed = 3f;
+    public float SpwanDelay = 0.5f;
 
     private bool _movingRight = true;
     private float _xMax;
@@ -15,7 +16,7 @@ public class FormationController : MonoBehaviour
     void Start ()
     {
         CalculateEdges();
-        SpawnEnemies();
+        FillEmptyPositions();
     }
 
     void OnDrawGizmos()
@@ -49,18 +50,37 @@ public class FormationController : MonoBehaviour
 
         if (AllMembersDead())
         {
-            SpawnEnemies();
+            FillEmptyPositions();
         }
     }
 
-    // Creating of an enemy ship swarm.
-    private void SpawnEnemies()
+    // Fills empty positions in formation with enemy ships.
+    private void FillEmptyPositions()
     {
-        foreach (Transform child in transform)
+        var freePosition = GetNextFreePosition();
+        if (freePosition)
         {
-            var enemy = Instantiate(EnemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
-            enemy.transform.parent = child;
+            var enemy = Instantiate(EnemyPrefab, freePosition.position, Quaternion.identity) as GameObject;
+            enemy.transform.parent = freePosition;
         }
+
+        if (GetNextFreePosition())
+        {
+            Invoke("FillEmptyPositions", SpwanDelay);
+        }
+    }
+
+    private Transform GetNextFreePosition()
+    {
+        foreach (Transform childPositionGameObject in transform)
+        {
+            if (childPositionGameObject.childCount == 0)
+            {
+                return childPositionGameObject;
+            }
+        }
+
+        return null;
     }
 
     // Checks wether all enemy ship objects are destroyed.
