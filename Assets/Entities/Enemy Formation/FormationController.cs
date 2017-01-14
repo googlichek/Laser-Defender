@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class FormationController : MonoBehaviour
 {
     public GameObject EnemyPrefab;
     public float Width  = 11f;
@@ -13,16 +13,10 @@ public class EnemySpawner : MonoBehaviour
     private float _padding = 0.6f;
 
     void Start ()
-	{
-	    CalculateEdges();
-
-        // Creatings of an enemy ship swarm.
-	    foreach (Transform child in transform)
-	    {
-            var enemy = Instantiate(EnemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
-            enemy.transform.parent = child;
-        }
-	}
+    {
+        CalculateEdges();
+        SpawnEnemies();
+    }
 
     void OnDrawGizmos()
     {
@@ -52,6 +46,35 @@ public class EnemySpawner : MonoBehaviour
         {
             _movingRight = false;
         }
+
+        if (AllMembersDead())
+        {
+            SpawnEnemies();
+        }
+    }
+
+    // Creating of an enemy ship swarm.
+    private void SpawnEnemies()
+    {
+        foreach (Transform child in transform)
+        {
+            var enemy = Instantiate(EnemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
+            enemy.transform.parent = child;
+        }
+    }
+
+    // Checks wether all enemy ship objects are destroyed.
+    private bool AllMembersDead()
+    {
+        foreach (Transform childPositionGameObject in transform)
+        {
+            if (childPositionGameObject.childCount > 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     // Calculates boundaries of game space.
