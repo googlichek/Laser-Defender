@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
 
     private void Defeat()
     {
+        var levelManager = FindObjectOfType<LevelManager>();
+        levelManager.LoadLevel("Win Screen");
         Destroy(gameObject);
     }
 
