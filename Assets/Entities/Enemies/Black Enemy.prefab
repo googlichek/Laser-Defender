@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4864165577882584}
   - component: {fileID: 212072798121074962}
   - component: {fileID: 50004426169090986}
-  - component: {fileID: 61663062689613612}
   - component: {fileID: 114902899136856634}
   - component: {fileID: 114350086674975602}
   - component: {fileID: 95000540510744974}
+  - component: {fileID: 60278306623971432}
   m_Layer: 9
   m_Name: Black Enemy
   m_TagString: Untagged
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1388857407050520}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 6, z: 0}
+  m_LocalPosition: {x: 8, y: 6.795, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,8 +65,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61663062689613612
-BoxCollider2D:
+--- !u!60 &60278306623971432
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -77,8 +77,30 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1.03, y: 0.84}
+  m_Points:
+    m_Paths:
+    - - {x: -0.11368084, y: -0.34179878}
+      - {x: 0.10499954, y: -0.34070826}
+      - {x: 0.13803482, y: -0.22824955}
+      - {x: 0.265, y: -0.32}
+      - {x: 0.26297283, y: -0.40321684}
+      - {x: 0.405, y: -0.42}
+      - {x: 0.505, y: -0.11}
+      - {x: 0.515, y: -0.06}
+      - {x: 0.515, y: 0.07}
+      - {x: 0.275, y: 0.37}
+      - {x: 0.125, y: 0.42}
+      - {x: -0.114999995, y: 0.42}
+      - {x: -0.145, y: 0.39999998}
+      - {x: -0.275, y: 0.38}
+      - {x: -0.515, y: 0.089999996}
+      - {x: -0.515, y: -0.089999996}
+      - {x: -0.42499998, y: -0.35999998}
+      - {x: -0.39499998, y: -0.42}
+      - {x: -0.285, y: -0.42}
+      - {x: -0.255, y: -0.41}
+      - {x: -0.12760735, y: -0.22782087}
+      - {x: -0.125, y: -0.29999998}
 --- !u!95 &95000540510744974
 Animator:
   serializedVersion: 3
