@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float BeamSpeed = 5f;
     public float FireRate = 0.1f;
     public float Health = 300f;
+    public AudioClip FireSound;
 
     private float _xMax;
     private float _xMin;
@@ -69,5 +70,6 @@ public class PlayerController : MonoBehaviour
         var startPosition = transform.position + new Vector3(0, _beamOffset, 0);
         var beam = Instantiate(Beam, startPosition, Quaternion.identity) as GameObject;
         beam.GetComponent<Rigidbody2D>().velocity = new Vector3(0, BeamSpeed, 0);
+        AudioSource.PlayClipAtPoint(FireSound, transform.position);
     }
 }

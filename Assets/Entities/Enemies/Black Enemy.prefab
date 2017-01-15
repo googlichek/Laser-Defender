@@ -145,6 +145,9 @@ MonoBehaviour:
   Health: 150
   BeamSpeed: 5
   ShotsPerSecond: 0.5
+  EnemyValue: 100
+  DeathSound: {fileID: 8300000, guid: 73505a576c3031d48a27c32b1947dcd1, type: 3}
+  FireSound: {fileID: 8300000, guid: b008298b7184974459d879a102e2e084, type: 3}
 --- !u!212 &212072798121074962
 SpriteRenderer:
   m_ObjectHideFlags: 1

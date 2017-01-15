@@ -258,7 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf5c9dcd9b32e5499d9626c0969e5e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreField: {fileID: 191541706}
 --- !u!4 &311531875 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4918609107800534, guid: abe27fd893095ef4eac3e9b948aa2d2f,
@@ -302,11 +301,6 @@ Prefab:
     - target: {fileID: 4246585495389072, guid: f4cda78a6eeb8ce4f9306c6508a3e6da, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 60050088306002358, guid: f4cda78a6eeb8ce4f9306c6508a3e6da,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f4cda78a6eeb8ce4f9306c6508a3e6da, type: 2}
