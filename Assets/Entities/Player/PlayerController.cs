@@ -60,9 +60,14 @@ public class PlayerController : MonoBehaviour
             beam.Hit();
             if (Health <= 0)
             {
-                Destroy(gameObject);
+                Defeat();
             }
         }
+    }
+
+    private void Defeat()
+    {
+        Destroy(gameObject);
     }
 
     private void Fire()
