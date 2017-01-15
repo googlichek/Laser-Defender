@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Helper class for showing total userscore when player ship is destroyed.
+/// </summary>
 public class ScoreMonitor : MonoBehaviour
 {
 	void Start ()

@@ -1,5 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 
+/// <summary>
+/// Describes projectile & it's capabilities.
+/// </summary>
 public class Projectile : MonoBehaviour
 {
     public float Damage = 100f;

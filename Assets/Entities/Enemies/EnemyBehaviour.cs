@@ -1,6 +1,8 @@
 using UnityEngine;
 
-// Enemy shooting pattern etc.
+/// <summary>
+/// Enemy behaviour patterns.
+/// </summary>
 public class EnemyBehaviour : MonoBehaviour
 {
     public GameObject Beam;

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Implementation of the player ship logic.
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     // Speed of the ship. Adjustable in Unity Editor.
@@ -25,6 +28,9 @@ public class PlayerController : MonoBehaviour
         _xMax = rightmost.x - _padding;
     }
 
+    /// <summary>
+    /// Contains responce logic to the keyboard input.
+    /// </summary>
 	void Update ()
 	{
         if (Input.GetKeyDown(KeyCode.Space))
@@ -51,6 +57,7 @@ public class PlayerController : MonoBehaviour
         }
 	}
 
+    
     void OnTriggerEnter2D(Collider2D collider)
     {
         var beam = collider.gameObject.GetComponent<Projectile>();
@@ -72,6 +79,9 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /// <summary>
+    /// Implementation of player ship's offensive capability. Method gets called in Update().
+    /// </summary>
     private void Fire()
     {
         var startPosition = transform.position + new Vector3(0, _beamOffset, 0);

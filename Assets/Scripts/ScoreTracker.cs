@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
-// Keeps track of the user score.
+/// <summary>
+/// Keeps track of the user score. 
+/// </summary>
 public class ScoreTracker : MonoBehaviour
 {
     public static int CurrentScore;

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Contains behaviour patterns for an enemy ships fromation.
+/// </summary>
 public class FormationController : MonoBehaviour
 {
     public GameObject EnemyPrefab;
@@ -13,6 +16,9 @@ public class FormationController : MonoBehaviour
     private float _xMin;
     private float _padding = 0.6f;
 
+    /// <summary>
+    /// Calculates formation movement boundaries and spawns enemy ships.
+    /// </summary>
     void Start ()
     {
         CalculateEdges();
@@ -54,7 +60,9 @@ public class FormationController : MonoBehaviour
         }
     }
 
-    // Fills empty positions in formation with enemy ships.
+    /// <summary>
+    /// Fills empty positions in formation with enemy ships. 
+    /// </summary>
     private void FillEmptyPositions()
     {
         var freePosition = GetNextFreePosition();
@@ -83,7 +91,11 @@ public class FormationController : MonoBehaviour
         return null;
     }
 
-    // Checks wether all enemy ship objects are destroyed.
+    /// <summary>
+    /// Checks wether all enemy ship objects in formation are destroyed.
+    /// </summary>
+    /// <returns>True, if all enemy ship objects in formation are destroyed.
+    /// False otherwise.</returns>
     private bool AllMembersDead()
     {
         foreach (Transform childPositionGameObject in transform)
@@ -97,7 +109,9 @@ public class FormationController : MonoBehaviour
         return true;
     }
 
-    // Calculates boundaries of game space.
+    /// <summary>
+    /// Calculates boundaries of a game space. 
+    /// </summary>
     private void CalculateEdges()
     {
         var distanceToCamera = transform.position.z - Camera.main.transform.position.z;
